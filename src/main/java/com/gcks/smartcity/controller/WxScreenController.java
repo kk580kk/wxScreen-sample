@@ -1,12 +1,9 @@
 package com.gcks.smartcity.controller;
-
-import com.gcks.smartcity.pojo.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.ModelAndView;oo
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,87 +13,86 @@ import java.util.List;
 public class WxScreenController {
 
 
-
     // 查询股票 info字段采用Base64编码
-    @RequestMapping(value = "wall/api/user/sync", produces = "text/json;charset=UTF-8",method = RequestMethod.POST)
-    public ModelAndView user(@RequestParam(value="state") String state,@RequestParam(value="last_id") String last_id,@RequestParam(value="last_whitelist_id") String last_whitelist_id) {
-        ModelAndView modelAndView=new ModelAndView("sync");
-        if("message".equals(state)){
-        if("144192289919006300".equals(last_id)){
-            modelAndView=new ModelAndView("sync2");
-        }}
+    @RequestMapping(value = "wall/api/user/sync", produces = "text/json;charset=UTF-8", method = RequestMethod.POST)
+    public ModelAndView user(@RequestParam(value = "state") String state, @RequestParam(value = "last_id") String last_id, @RequestParam(value = "last_whitelist_id") String last_whitelist_id) {
+        ModelAndView modelAndView = new ModelAndView("sync");
+        if ("message".equals(state)) {
+            if ("144192289919006300".equals(last_id)) {
+                modelAndView = new ModelAndView("sync2");
+            }
+        }
 
-        if("app".equals(state)){
-            if("144192289919006300".equals(last_id)){
-                modelAndView=new ModelAndView("sync2");
-            }}
+        if ("app".equals(state)) {
+            if ("144192289919006300".equals(last_id)) {
+                modelAndView = new ModelAndView("sync2");
+            }
+        }
 
 
-        if("lottery".equals(state)){
-            modelAndView=new ModelAndView("lottery");
+        if ("lottery".equals(state)) {
+            modelAndView = new ModelAndView("lottery");
 
         }
 
         System.out.println(state);
         return modelAndView;
     }
-    @RequestMapping(value = "wall/api/listening/add_listening", produces = "text/json;charset=UTF-8",method = RequestMethod.POST)
-    public ModelAndView add_listening(@RequestParam(value="companyid") String companyid,@RequestParam(value="res_name") String res_name,@RequestParam(value="imgsrc") String imgsrc  ) {
-        ModelAndView modelAndView=new ModelAndView("listening");
+
+    @RequestMapping(value = "wall/api/listening/add_listening", produces = "text/json;charset=UTF-8", method = RequestMethod.POST)
+    public ModelAndView add_listening(@RequestParam(value = "companyid") String companyid, @RequestParam(value = "res_name") String res_name, @RequestParam(value = "imgsrc") String imgsrc) {
+        ModelAndView modelAndView = new ModelAndView("listening");
         return modelAndView;
     }
+
     // 查询股票 info字段采用Base64编码
-    @RequestMapping(value = "index.htm/prize/ajax/data", produces = "text/json;charset=UTF-8",method = RequestMethod.POST)
-    public ModelAndView data(@RequestParam(value="company_id") String company_id) {
-        ModelAndView modelAndView=new ModelAndView("data");
-        User u= new User();
-        User u1= new User();
-        User u2= new User();
-        List<User> l=new ArrayList<User>();
-        l.add(u);
-        l.add(u1);
-        l.add(u2);
-        modelAndView.addObject("info","ok");
-        modelAndView.addObject("list",l);
+    @RequestMapping(value = "index.htm/prize/ajax/data", produces = "text/json;charset=UTF-8", method = RequestMethod.POST)
+    public ModelAndView data(@RequestParam(value = "company_id") String company_id) {
+        ModelAndView modelAndView = new ModelAndView("data");
+        List l = new ArrayList();
+        modelAndView.addObject("info", "ok");
+        modelAndView.addObject("list", l);
         return modelAndView;
     }
 
 
     // 查询股票 info字段采用Base64编码
-    @RequestMapping(value = "wall/api/message/checkin_sync", produces = "text/json;charset=UTF-8",method = RequestMethod.GET)
-    public ModelAndView checkin_sync(@RequestParam(value="last_id") String last_id,@RequestParam(value="state") String state) {
-        ModelAndView modelAndView=new ModelAndView("checkin");
-        if(!"0".equals(last_id)){
-            modelAndView=new ModelAndView("checkinEmpty");
+    @RequestMapping(value = "wall/api/message/checkin_sync", produces = "text/json;charset=UTF-8", method = RequestMethod.GET)
+    public ModelAndView checkin_sync(@RequestParam(value = "last_id") String last_id, @RequestParam(value = "state") String state) {
+        ModelAndView modelAndView = new ModelAndView("checkin");
+        if (!"0".equals(last_id)) {
+            modelAndView = new ModelAndView("checkinEmpty");
         }
         return modelAndView;
     }
+
     // 查询股票 info字段采用Base64编码
-    @RequestMapping(value = "wall/api/message/sync", produces = "text/json;charset=UTF-8",method = RequestMethod.POST)
-    public ModelAndView message(@RequestParam(value="last_id") String last_id,@RequestParam(value="tag_id") String tag_id,@RequestParam(value="state") String state) {
-        ModelAndView modelAndView=new ModelAndView("message");
-        if("144192289918982554".equals(last_id)){
-            modelAndView=new ModelAndView("messageEmpty");
+    @RequestMapping(value = "wall/api/message/sync", produces = "text/json;charset=UTF-8", method = RequestMethod.POST)
+    public ModelAndView message(@RequestParam(value = "last_id") String last_id, @RequestParam(value = "tag_id") String tag_id, @RequestParam(value = "state") String state) {
+        ModelAndView modelAndView = new ModelAndView("message");
+        if ("144192289918982554".equals(last_id)) {
+            modelAndView = new ModelAndView("messageEmpty");
 
         }
-        if("app".equals(state)){
-            modelAndView=new ModelAndView("message");
+        if ("app".equals(state)) {
+            modelAndView = new ModelAndView("message");
+        }
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "wall/api/message/sync", produces = "text/json;charset=UTF-8", method = RequestMethod.GET)
+    public ModelAndView message(@RequestParam(value = "last_id", required = false) String last_id) {
+        ModelAndView modelAndView = new ModelAndView("message");
+        if ("144192289918982554".equals(last_id)) {
+            modelAndView = new ModelAndView("messageEmpty");
+
         }
         return modelAndView;
     }
 
-    @RequestMapping(value = "wall/api/message/sync", produces = "text/json;charset=UTF-8",method = RequestMethod.GET)
-    public ModelAndView message(@RequestParam(value="last_id",required=false) String last_id ) {
-        ModelAndView modelAndView=new ModelAndView("message");
-        if("144192289918982554".equals(last_id)){
-            modelAndView=new ModelAndView("messageEmpty");
-
-        }
-        return modelAndView;
-    }
-    @RequestMapping(value = "wall/api/user/notice/get_latest_notice", produces = "text/json;charset=UTF-8",method = RequestMethod.POST)
+    @RequestMapping(value = "wall/api/user/notice/get_latest_notice", produces = "text/json;charset=UTF-8", method = RequestMethod.POST)
     public ModelAndView message() {
-        ModelAndView modelAndView=new ModelAndView("notice");
+        ModelAndView modelAndView = new ModelAndView("notice");
 
         return modelAndView;
     }
@@ -116,7 +112,6 @@ public class WxScreenController {
 //        modelAndView.addObject("list",l);
 //        return modelAndView;
 //    }
-
 
 
 //    // 查询股票 info字段采用Base64编码
