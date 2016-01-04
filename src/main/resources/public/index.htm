@@ -20,12 +20,15 @@
         .vote-join-num, .voteOptionCount {
             display: none
         }
+
         .rateOpBtn {
             display: none !important;
         }
+
         .user-list li {
             opacity: 0.9
         }
+
         .detail-box {
             opacity: 0.9
         }
@@ -260,7 +263,7 @@
                 </div>
             </div>
       <span class="reserved right showIntroBtn">
-                  <img src="../s8.wxscreen.com/static/upload/slave2_store2/2014/01/03/20140103185421000000_1_50479_7439.png"
+                  <img src="http://s8.wxscreen.com/static/upload/slave2_store2/2014/01/03/20140103185421000000_1_50479_7439.png"
                        style="max-width:126px;max-height:96px;">
               </span>
         </div>
@@ -527,9 +530,12 @@
                                 </div>
                                 <!--end .list-box-->
                                 <div class="und-btn">
-                                    <a href="javascript:void(0);" id="resetLotteryBtn" class="resetLotteryBtn"><span style="display:none;">重新抽奖</span><img src="images/loading.gif"
-                                                                                                                                      tppabs="http://demo.wxscreen.com/images/loading.gif"/></a>
-                                    <a href="javascript:void(0);" id="saveAwards" class="resetLotteryBtn"><span style="display:none;">保存结果</span><img src="images/loading.gif" tppabs="http://demo.wxscreen.com/images/loading.gif"/></a>
+                                    <a href="javascript:void(0);" id="resetLotteryBtn" class="resetLotteryBtn"><span
+                                            style="display:none;">重新抽奖</span><img src="images/loading.gif"
+                                                                                  tppabs="http://demo.wxscreen.com/images/loading.gif"/></a>
+                                    <a href="javascript:void(0);" id="saveAwards" class="resetLotteryBtn"><span
+                                            style="display:none;">保存结果</span><img src="images/loading.gif"
+                                                                                  tppabs="http://demo.wxscreen.com/images/loading.gif"/></a>
                                 </div>
                             </div>
                             <!--end .wrap-prize-->
@@ -596,8 +602,8 @@
                 is_show_win_mobile: false,
                 award_list: null
             });
-            $("#saveAwards").click(function(){
-            wxscreen.lottery.saveAwards();
+            $("#saveAwards").click(function () {
+                wxscreen.lottery.saveAwards();
             });
         </script>
 
@@ -629,7 +635,6 @@
             </div>
         </div>
         <!--end 二维码弹层-->
-
 
 
         <div class="fl-layer checkin-pop" style="visibility:hidden;" id="checkinLayer">
@@ -709,7 +714,6 @@
                 });
             });
         </script>
-
 
 
     </div>
@@ -2351,7 +2355,6 @@
         "listenAPI": ["message.newMsgReceived", "main.hashTrigger"]
     });
 </script>
-
 
 
 <!-- </body></html> -->

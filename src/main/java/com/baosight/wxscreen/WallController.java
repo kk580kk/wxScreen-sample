@@ -16,11 +16,11 @@ public class WallController {
     public ModelAndView message(@RequestParam(value = "last_id") String last_id, @RequestParam(value = "tag_id") String tag_id, @RequestParam(value = "state") String state) {
         ModelAndView modelAndView = new ModelAndView("message");
         if ("144192289918982554".equals(last_id)) {
-            modelAndView = new ModelAndView("messageEmpty");
+            modelAndView = new ModelAndView("view/messageEmpty.vm");
 
         }
         if ("app".equals(state)) {
-            modelAndView = new ModelAndView("message");
+            modelAndView = new ModelAndView("view/message.vm");
         }
         return modelAndView;
     }
