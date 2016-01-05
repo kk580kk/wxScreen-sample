@@ -7,9 +7,11 @@ package com.baosight.wxscreen;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
+@ComponentScan(basePackages = "com.baosight.wxscreen")
 public class Application {
 
     public static void main(String[] args) {
